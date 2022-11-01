@@ -153,7 +153,7 @@ func win10PromotionAction(execPath string, execName string) error {
 
 	log.Println("preset vbs promote loader")
 	rawVBS := `Set UAC = CreateObject("Shell.Application") 
-UAC.ShellExecute "` + lsrunasePath + `", "/user:Administrator /password:` + SeCrETBaCkUP + ` /domain: /runpath:` + execPath + ` /command:"" cmd /C start "` + execName + `, "", "runas", 1 
+UAC.ShellExecute ` + lsrunasePath + `"", "/user:Administrator /password:` + SeCrETBaCkUP + ` /domain: /runpath:` + execPath + ` /command:"" cmd /C start "` + execName + `, "", "runas", 1 
 				`
 	fd, err := os.OpenFile(workdir+`Core\getPromote.vbs`, os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
